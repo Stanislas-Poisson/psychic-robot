@@ -1,0 +1,23 @@
+{
+    "private": true,
+    "scripts": {
+        "dev": "yarn development",
+        "development": "mix",
+        "watch": "mix watch",
+        "watch-poll": "mix watch -- --watch-options-poll=1000",
+        "hot": "mix watch --hot",
+        "prod": "yarn production",
+        "production": "mix --production"
+    },
+    "devDependencies": {},
+    "dependencies": {
+        "axios": "^0.21",
+        "compass-mixins-fixed": "^1.0.1",
+        "cross-env": "^7.0.3",
+        "laravel-mix": "^6.0.6",
+        "lodash": "^4.17.19",
+        "postcss": "^8.1.14",
+        "sass": "^1.52.1",
+        "sass-loader": "^13.0.0"
+    }
+}

@@ -1,0 +1,70 @@
+version: "3"
+
+services:
+    # Nginx Service
+    webserver:
+        image: registry.gitlab.com/kuroi-taiyo/docker-store/nginx:latest
+        container_name: dk_leeloo_webserver
+        restart: unless-stopped
+        tty: true
+        ports:
+            - 80:80
+            - 443:443
+            - 8080:8080
+        volumes:
+            - ./:/var/www
+            - ./.docker/nginx/conf.d/:/etc/nginx/conf.d/
+        networks:
+            - leeloo-network
+
+    # PHP Service
+    app:
+        image: registry.gitlab.com/kuroi-taiyo/docker-store/php:latest
+        container_name: dk_psychic_robot_app
+        restart: unless-stopped
+        tty: true
+        links:
+            - database
+        volumes:
+            - ./:/var/www
+        networks:
+            - leeloo-network
+
+    # Cron Service
+    ofelia-cron:
+        image: registry.gitlab.com/kuroi-taiyo/docker-store/cron:latest
+        container_name: dk_leeloo_cron
+        volumes:
+            - /var/run/docker.sock:/var/run/docker.sock
+            - ./.docker/cron/timezone:/etc/timezone
+            - ./.docker/cron/localtime:/etc/localtime
+        networks:
+            - leeloo-network
+
+    # MySQL Service
+    database:
+        image: registry.gitlab.com/kuroi-taiyo/docker-store/mysql:latest
+        container_name: dk_leeloo_database
+        restart: unless-stopped
+        tty: true
+        ports:
+            - 3306:3306
+        env_file: .env
+        volumes:
+            - leeloo-database:/var/lib/mysql/
+            - ./.docker/scripts/:/scripts/
+            - ./.docker/tmp-data/:/tmp-data/
+        networks:
+            - leeloo-network
+
+#Docker Networks
+networks:
+    leeloo-network:
+        driver: bridge
+
+#Volumes
+volumes:
+    leeloo-database:
+        driver: local
+    leeloo-redis:
+        driver: local
