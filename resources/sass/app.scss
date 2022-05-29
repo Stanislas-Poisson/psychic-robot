@@ -1,0 +1,107 @@
+@charset "UTF-8";
+@import 'compass-mixins-fixed';
+
+@import '_mixins.scss';
+@import '_variables.scss';
+
+.container {
+    position: relative;
+    max-width: pxToRem(1100);
+    margin: 0 auto;
+    padding: pxToRem(16) pxToRem(8);
+}
+
+.txt-center {
+    text-align: center;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url('../images/background.png');
+    background-repeat: repeat;
+    background-position: top;
+}
+
+header {
+    padding: pxToRem(12) pxToRem(22);
+    color: #ffffff;
+    background-color: #3a3a3a;
+
+    & > div {
+        text-align: center;
+    }
+
+    a {
+        color: #ffffff;
+    }
+}
+
+#results {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: pxToRem(16);
+    gap: pxToRem(16);
+
+    .card {
+        display: grid;
+        grid-template-rows: pxToRem(356) 1fr pxToRem(34);
+        grid-gap: pxToRem(16);
+        gap: pxToRem(16);
+
+        color: rgba(#000000, 0.87);
+        background-color: #ffffff;
+        @include border-radius(pxToRem(6));
+        @include box-shadow(0 0 pxToRem(8) rgba(#000000, 0.87));
+        overflow: hidden;
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        .content {
+            padding-right: pxToRem(22);
+            padding-left: pxToRem(22);
+
+            h3 {
+                margin-top: 0;
+            }
+        }
+
+        aside {
+            padding: 0 pxToRem(22) pxToRem(16);
+            text-align: right;
+        }
+    }
+}
+
+article {
+    color: rgba(#000000, 0.87);
+    background-color: #ffffff;
+    @include border-radius(pxToRem(6));
+    @include box-shadow(0 0 pxToRem(8) rgba(#000000, 0.87));
+    overflow: hidden;
+
+    img {
+        display: block;
+        width: 100%;
+    }
+
+    .content {
+        padding: pxToRem(16) pxToRem(22);
+
+        h2 {
+            margin-top: 0;
+        }
+    }
+}

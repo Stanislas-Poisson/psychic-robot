@@ -56,6 +56,6 @@ class ApiData extends Model
      */
     public function getLocalImageAttribute()
     {
-        return $this->id.'-'.basename($this->image);
+        return 'storage/'.$this->id.'-'.basename($this->image);
     }
 }

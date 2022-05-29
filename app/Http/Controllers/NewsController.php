@@ -10,7 +10,7 @@ class NewsController extends Controller
     /**
      * Return bunch of Data.
      *
-     * @return \Illuminate\Database\Eloquent\Collection<App\Models\ApiData>
+     * @return \Illuminate\Database\Eloquent\Collection<\App\Models\ApiData>
      */
     public function index(Request $request)
     {

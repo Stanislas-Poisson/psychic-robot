@@ -10,8 +10,8 @@
 - ☑ Ajoute une route pour permettre à ton front de fetcher un article en GET
 
 ### Frontend (2 écrans) :
-- ☐ Home : Pour afficher la liste des articles (image, titre, description courte)
-- ☐ Page détail d'un produit/article : Pour afficher un article en détail (image large, titre, description longue)
+- ☑ Home : Pour afficher la liste des articles (image, titre, description courte)
+- ☑ Page détail d'un produit/article : Pour afficher un article en détail (image large, titre, description longue)
 
 ### Déploiement (option) :
 - ☐ Déploie le projet sur un PaaS : Heroku, Vercel, Netlify ou Clever cloud
