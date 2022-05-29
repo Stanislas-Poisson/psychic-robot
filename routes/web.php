@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\NewsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::prefix('web-api')
+    ->group(function () {
+        Route::get('/news', [NewsController::class, 'index']);
+        Route::get('/new/{ApiData_id}', [NewsController::class, 'show']);
+    });

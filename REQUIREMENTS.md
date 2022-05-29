@@ -6,7 +6,8 @@
 
 ### Backend Laravel 9.x
 - ☑ Wrap l'API de ton choix (Open Data, Feed Le Monde, L'Equipe, https://public-apis.xyz/, https://pokeapi.co/, etc.) et importe une vingtaine d'articles
-- ☐ Ajoute une route pour permettre à ton front de fetcher tes articles en GET
+- ☑ Ajoute une route pour permettre à ton front de fetcher tes articles en GET
+- ☑ Ajoute une route pour permettre à ton front de fetcher un article en GET
 
 ### Frontend (2 écrans) :
 - ☐ Home : Pour afficher la liste des articles (image, titre, description courte)
