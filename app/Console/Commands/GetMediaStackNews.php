@@ -3,11 +3,13 @@
 namespace App\Console\Commands;
 
 use App;
+use App\Models\ApiData;
 use Carbon\Carbon;
 use Exception;
 use Goutte\Client as GoutteClient;
 use GuzzleHttp\Client as GuzzleClient;
 use Illuminate\Console\Command;
+use Intervention\Image\Facades\Image;
 
 class GetMediaStackNews extends Command
 {
@@ -81,6 +83,20 @@ class GetMediaStackNews extends Command
                 $crawler      = $goutteClient->request('GET', $item->url);
 
                 $text = $crawler->filter('.ArticleBody')->text();
+
+                $apiData = ApiData::create([
+                    'title'        => $item->title,
+                    'description'  => $item->description,
+                    'text'         => $text,
+                    'image'        => $item->image,
+                    'published_at' => $item->published_at,
+                ]);
+
+                Image::make($apiData->image)
+                    ->fit(512, 512, function ($constraint) {
+                        $constraint->upsize();
+                    })
+                    ->save(storage_path('app/public/'.$apiData->id).'-'.basename($apiData->image));
             });
     }
 }

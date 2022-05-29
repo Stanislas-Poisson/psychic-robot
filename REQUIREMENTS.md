@@ -5,7 +5,7 @@
 - ☑ Init ton projet en local avec le backend et le frontend
 
 ### Backend Laravel 9.x
-- ☐ Wrap l'API de ton choix (Open Data, Feed Le Monde, L'Equipe, https://public-apis.xyz/, https://pokeapi.co/, etc.) et importe une vingtaine d'articles
+- ☑ Wrap l'API de ton choix (Open Data, Feed Le Monde, L'Equipe, https://public-apis.xyz/, https://pokeapi.co/, etc.) et importe une vingtaine d'articles
 - ☐ Ajoute une route pour permettre à ton front de fetcher tes articles en GET
 
 ### Frontend (2 écrans) :
@@ -19,7 +19,6 @@
 Le lien Github avec les sources du projet
 - ☐ L'url du projet en prod (si déployé sur un Paas)
 - ☐ Un Readme avec quelques explications sur ton dev (par ex : comment installer le projet, détail de l'api, élément spécifique au projet, blocage éventuel, TODO de ce qu'il serait bien de faire pour améliorer le projet...)
-
 
 Je te propose de m'envoyer ça d'ici Jeudi 2 Juin,
 Si tu as un soucis ou besoin de plus d'explication, n'hésites pas à me contacter par mail ou par téléphone.
