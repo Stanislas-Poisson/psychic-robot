@@ -4,7 +4,7 @@ services:
     # Nginx Service
     webserver:
         image: registry.gitlab.com/kuroi-taiyo/docker-store/nginx:latest
-        container_name: dk_leeloo_webserver
+        container_name: dk_psychic_robot_webserver
         restart: unless-stopped
         tty: true
         ports:
@@ -15,7 +15,7 @@ services:
             - ./:/var/www
             - ./.docker/nginx/conf.d/:/etc/nginx/conf.d/
         networks:
-            - leeloo-network
+            - psychic_robot-network
 
     # PHP Service
     app:
@@ -28,43 +28,43 @@ services:
         volumes:
             - ./:/var/www
         networks:
-            - leeloo-network
+            - psychic_robot-network
 
     # Cron Service
     ofelia-cron:
         image: registry.gitlab.com/kuroi-taiyo/docker-store/cron:latest
-        container_name: dk_leeloo_cron
+        container_name: dk_psychic_robot_cron
         volumes:
             - /var/run/docker.sock:/var/run/docker.sock
             - ./.docker/cron/timezone:/etc/timezone
             - ./.docker/cron/localtime:/etc/localtime
         networks:
-            - leeloo-network
+            - psychic_robot-network
 
     # MySQL Service
     database:
         image: registry.gitlab.com/kuroi-taiyo/docker-store/mysql:latest
-        container_name: dk_leeloo_database
+        container_name: dk_psychic_robot_database
         restart: unless-stopped
         tty: true
         ports:
             - 3306:3306
         env_file: .env
         volumes:
-            - leeloo-database:/var/lib/mysql/
+            - psychic_robot-database:/var/lib/mysql/
             - ./.docker/scripts/:/scripts/
             - ./.docker/tmp-data/:/tmp-data/
         networks:
-            - leeloo-network
+            - psychic_robot-network
 
 #Docker Networks
 networks:
-    leeloo-network:
+    psychic_robot-network:
         driver: bridge
 
 #Volumes
 volumes:
-    leeloo-database:
+    psychic_robot-database:
         driver: local
-    leeloo-redis:
+    psychic_robot-redis:
         driver: local

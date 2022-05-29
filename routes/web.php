@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\NewsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::prefix('web-api')
+    ->group(function () {
+        Route::controller(NewsController::class)
+            ->group(function () {
+                Route::get('/news', 'index');
+                Route::get('/new/{ApiData_id}', 'show');
+            });
+    });
+
 Route::get('/', function () {
-    return view('welcome');
+    return view('news');
 });
+Route::get('/{vue_capture?}', function () {
+    return view('news');
+})
+    ->where('vue_capture', '^(?:(?!api).)[\/\w\.-]*');

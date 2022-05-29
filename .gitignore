@@ -1,9 +1,8 @@
 /.idea
 /.vscode
-
+/bootstrap/cache
 /node_modules
-/public/hot
-/public/storage
+/public
 /storage/*.key
 /vendor
 _ide_helper.php

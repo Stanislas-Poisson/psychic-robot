@@ -2,7 +2,7 @@
 # A shell script to store the MySQL database access.
 
 # Get the IP of the database container
-MYSQL_HOST=$(docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' dk_leeloo_database)
+MYSQL_HOST=$(docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' dk_psychic_robot_database)
 
 # Get the user name setted on the .env file
 MYSQL_USER=$(awk -F "[=]" '/MYSQL_USER=/{print $(NF)}' .env.behat)

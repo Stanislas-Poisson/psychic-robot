@@ -1,0 +1,6 @@
+@use 'sass:math';
+
+// Convert all PX unit to the REM unit with the default font-size
+@function pxToRem($px) {
+    @return math.div(($px * 1), $baseFontSize) + rem;
+}
