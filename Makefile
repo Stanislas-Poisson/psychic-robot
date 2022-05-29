@@ -16,8 +16,11 @@ help:	## Show this help
 ssh:	## Acces to the dk_psychic_robot_app
 	@$(INTERACTIVE_EXEC) bash
 
-design:	## Acces to the dk_psychic_robot_app
+design:	## Compiled the front inside of the dk_psychic_robot_app
 	@$(INTERACTIVE_EXEC) bash -c "yarn watch-poll"
+
+design-stats:	## Compiled the front inside of the dk_psychic_robot_app with the stats
+	@$(INTERACTIVE_EXEC) bash -c "yarn watch-poll-stats"
 
 restart: stop start	## Execute stop and start
 
