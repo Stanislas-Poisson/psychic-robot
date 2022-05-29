@@ -9,6 +9,7 @@
     "license": "MIT",
     "require": {
         "php": "^7.3|^8.0",
+        "fabpot/goutte": "^4.0",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^8.75",
@@ -68,7 +69,7 @@
             "@php artisan key:generate --ansi"
         ],
         "renew-app": [
-            "bash .docker/scripts/post-composer.sh"
+            "bash .scripts/post-composer.sh"
         ]
     },
     "extra": {
