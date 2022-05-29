@@ -1,6 +1,6 @@
 /.idea
 /.vscode
-/bootstrap
+/bootstrap/cache
 /node_modules
 /public
 /storage/*.key
