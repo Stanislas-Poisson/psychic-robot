@@ -1,0 +1,21 @@
+includes:
+  - ./vendor/nunomaduro/larastan/extension.neon
+
+parameters:
+  level: 8
+  parallel:
+    maximumNumberOfProcesses: 1
+  paths:
+    - app
+  ignoreErrors:
+  excludePaths:
+    - ./.docker
+    - ./bootstrap/cache
+    - ./node_modules
+    - ./public
+    - ./storage
+    - ./vendor
+    - ./_ide_helper.php
+    - ./.phpstorm.meta.php
+    - ./.php-cs-fixer.php
+  checkMissingIterableValueType: false

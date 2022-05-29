@@ -68,7 +68,7 @@
             "@php artisan key:generate --ansi"
         ],
         "renew-app": [
-            "bash .scripts/post-composer.sh"
+            "bash .docker/scripts/post-composer.sh"
         ]
     },
     "extra": {
