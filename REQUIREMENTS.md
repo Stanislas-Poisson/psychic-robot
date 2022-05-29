@@ -19,7 +19,7 @@
 ## A fournir:
 Le lien Github avec les sources du projet
 - ☐ L'url du projet en prod (si déployé sur un Paas)
-- ☐ Un Readme avec quelques explications sur ton dev (par ex : comment installer le projet, détail de l'api, élément spécifique au projet, blocage éventuel, TODO de ce qu'il serait bien de faire pour améliorer le projet...)
+- ☑ Un Readme avec quelques explications sur ton dev (par ex : comment installer le projet, détail de l'api, élément spécifique au projet, blocage éventuel, TODO de ce qu'il serait bien de faire pour améliorer le projet...)
 
 Je te propose de m'envoyer ça d'ici Jeudi 2 Juin,
 Si tu as un soucis ou besoin de plus d'explication, n'hésites pas à me contacter par mail ou par téléphone.

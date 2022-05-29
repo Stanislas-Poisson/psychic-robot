@@ -2,8 +2,8 @@
 
 | Branche | Status |
 | ------- | ------ |
-| Master | [![pipeline status](https://gitlab.com/Stanislas-Poisson/leeloo/badges/master/pipeline.svg)](https://gitlab.com/Stanislas-Poisson/leeloo/commits/master) |
-| Develop | [![pipeline status](https://gitlab.com/Stanislas-Poisson/leeloo/badges/develop/pipeline.svg)](https://gitlab.com/Stanislas-Poisson/leeloo/commits/develop) |
+| Master | [![pipeline status](https://gitlab.com/Stanislas-Poisson/psychic-robot/badges/master/pipeline.svg)](https://gitlab.com/Stanislas-Poisson/psychic-robot/commits/master) |
+| Develop | [![pipeline status](https://gitlab.com/Stanislas-Poisson/psychic-robot/badges/develop/pipeline.svg)](https://gitlab.com/Stanislas-Poisson/psychic-robot/commits/develop) |
 
 This is a [Laravel 8.x](https://laravel.com/docs/8.x) app.
 
@@ -83,3 +83,15 @@ Please keep in mind that these updates may break the build, so update them caref
 ## How to use
 
 Just go on the app and use it.
+
+## About the project
+Ce projet utilise l'API de MediaStack avec un filtre sur la source du Point et la langue Fr.
+MediaStack pourvoit un retour structuré mais sans le text complet, d'ou l'usage de Goutte qui permet d'aller récupérer directement le contenu de la cible.
+Pour un affichage plus optimisé, lors de l'enregistrement sont stocker une version modifier par la librairie Imagine de l'image d'illustration.
+
+### Blocage
+N'ayant pas trouver d'API public auprès des différents éditoriaux, je me suis tourner après recherche vers MediaStack qui fournit un ensemble de médias suffisament concéquent pour le projet en cours.
+
+### TODO
+Améliorer le parsing via Goutte afin d'éliminer les éléments superflue et ne garder que le contenu même.
+Améliorer aussi le rendu visuel en enregistrant les retours à la ligne du texte distant et potentiellement le formattage appliquer (soit directement en html soit via une transposition type Markdown ou BBcode)
