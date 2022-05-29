@@ -1,4 +1,4 @@
-window._ = require('lodash');
+window._ = require('lodash')
 
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
@@ -6,9 +6,71 @@ window._ = require('lodash');
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
 
-window.axios = require('axios');
+window.axios = require('axios')
 
-window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest'
+
+/**
+ * Next we will register the CSRF Token as a common header with Axios so that
+ * all outgoing HTTP requests automatically have it attached. This is just
+ * a simple convenience so we don't have to attach every token manually.
+ */
+
+let token = document.head.querySelector('meta[name="csrf-token"]')
+
+if (token) {
+    window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content
+} else {
+    console.error('CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token')
+}
+
+/**
+ * Next we will register the request interceptor and response interceptor.
+ */
+// Set a getter/setter and listerner to the window.
+window.ajaxRunning = {
+    nbrInternal: 0,
+    nbrListener: function (val) {},
+    set nbr(val) {
+        if (val < 0) {
+            val = 0
+        }
+        this.nbrInternal = val
+        this.nbrListener(val)
+    },
+    get nbr() {
+        return this.nbrInternal
+    },
+    registerListener: function (listener) {
+        this.nbrListener = listener
+    },
+}
+
+// Add a request interceptor
+axios.interceptors.request.use(
+    function (config) {
+        window.ajaxRunning.nbr++
+
+        return config
+    },
+    function (error) {
+        return Promise.reject(error)
+    }
+)
+
+// Add a response interceptor
+axios.interceptors.response.use(
+    function (response) {
+        window.ajaxRunning.nbr--
+
+        return response
+    },
+    function (error) {
+        window.ajaxRunning.nbr--
+
+        return Promise.reject(error)
+    }
+)
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
