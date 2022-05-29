@@ -52,6 +52,7 @@ start: stop	## Start the project
 	$(RUN) chown -R 1000:www /var/www
 	$(RUN) chmod -R 0777 /var/www/storage /var/www/bootstrap/cache
 	$(RUN) rm -Rf storage/logs/*
+	$(RUN) php artisan mediastack:get
 
 	$(COMPOSE) up -d app
 	$(COMPOSE) up -d

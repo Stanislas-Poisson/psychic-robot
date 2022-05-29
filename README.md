@@ -53,6 +53,7 @@ Then:
 - `yarn run development`
 - `php artisan migrate:fresh --force --seed`
 - `php artisan storage:link`
+- `php artisan mediastack:get`
 
 Then, use [Homestead](https://laravel.com/docs/master/homestead), `php artisan serve` or whatever to serve the app.
 
